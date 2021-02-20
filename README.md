@@ -1,3 +1,12 @@
+## Procedure
+
+Make sure that the docker and docker-compose have installed in your machine. Then, run the following command:  
+```
+docker-compose -f .mrt/.dev.yml up -d
+```
+
+----
+
 # books-store
 
 This is a Flask+PostgreSQL example web application for deplying on Heroku.,
