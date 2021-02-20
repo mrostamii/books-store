@@ -1,0 +1,12 @@
+FROM python:3.7
+MAINTAINER MRT
+
+COPY ./requirements.txt ./requirements.txt
+RUN pip install -r requirements.txt
+
+COPY ./ ./
+
+ENV APP_SETTINGS="config.DevelopmentConfig"
+ENV DATABASE_URL="$book_store_DATABASE_URL"
+
+CMD ["python","manage.py", "runserver","-h","0.0.0.0","-p","5000"]
