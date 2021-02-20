@@ -36,18 +36,16 @@ services:
       py-app:
         ipv4_address: 10.11.12.3
 
-#  pma:
-#    image: phpmyadmin/phpmyadmin
-#    restart: unless-stopped
-#    container_name: py_phpmyadmin
-#    ports:
-#      - 127.0.0.1:9999:80
-#    networks:
-#      py-app:
-#        ipv4_address: 10.11.12.4
-#    environment:
-#      PMA_HOST: db
-#      MYSQL_ROOT_PASSWORD: "$book_store_DB_PASS"
+  pma:
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    container_name: py_phpmyadmin
+    networks:
+      py-app:
+        ipv4_address: 10.11.12.4
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: "$book_store_DB_PASS"
 
   webserver:
     image: nginx:alpine
@@ -66,3 +64,4 @@ services:
         ipv4_address: 10.11.12.5
     depends_on:
       - app
+      - pma
