@@ -62,6 +62,3 @@ services:
     networks:
       py-app:
         ipv4_address: 10.11.12.5
-    depends_on:
-      - app
-      - pma
